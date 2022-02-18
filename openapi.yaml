@@ -5,8 +5,8 @@ info:
   version: '1.0.0' # Your API version
   # It can be any string but it is better to use semantic versioning: http://semver.org/
   # Warning: OpenAPI requires the version to be a string, but without quotation marks YAML can recognize it as a number.
-  
-  title: Example.com # Replace with your API title
+
+  title: PredictaaS # Replace with your API title
   # Keep it simple. Don't add "API" or version at the end of the string.
 
   termsOfService: 'https://example.com/terms/' # [Optional] Replace with an URL to your ToS
@@ -18,13 +18,13 @@ info:
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
   x-logo:
     url: 'https://redocly.github.io/openapi-template/logo.png'
-  
+
   # Describe your API here, you can use GFM (https://guides.github.com/features/mastering-markdown) here
   description: |
-    This is an **example** API for the PredictaaS web service.
+    This is a **sample** API for the PredictaaS web service.
     # Introduction
-    This API specification is intended to provide a skeleton for the required API paths expected for the 
-    PredictaaS ML web service. It is OpenAPI v3 compliant, check out 
+    This API specification is intended to provide a skeleton for the required API paths expected for the
+    PredictaaS ML web service. It is OpenAPI v3 compliant, check out
     [OpenAPI format](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md) for additional
     features.
 
@@ -40,24 +40,24 @@ servers:
   - url: 'https://example.com/api/v1'
 
 # Holds the relative paths to the individual endpoints. The path is appended to the
-# basePath in order to construct the full URL. 
+# basePath in order to construct the full URL.
 paths:
   '/mlapp/{appname}':
     get: # documentation for GET operation for this path
       tags:
         - App
-      
+
       # summary is up to 120 symbold but we recommend to be shortest as possible
       summary: Get ML application by name
-      
+
       # you can use GFM in operation description too: https://guides.github.com/features/mastering-markdown
       description: |
-        Some description of the operation. 
+        Some description of the operation.
         You can use `markdown` here.
-      
+
       # operationId should be unique across the whole specification
       operationId: getMLAppByName
-      
+
       # list of parameters for the operation
       parameters:
         - name: appname
@@ -66,7 +66,7 @@ paths:
           required: true
           schema:
             type: string
-      
+
       responses: # list of responses
         '200':
           description: Success
@@ -112,7 +112,7 @@ paths:
               $ref: '#/components/schemas/MLApp'
         description: Updated user object
         required: true
-        
+
 # An object to hold reusable parts that can be used across the definition
 components:
   schemas:
@@ -139,7 +139,7 @@ components:
           type: string
           enum: [predict, train]
           minLength: 1
-          example: 
+          example:
             - predict
             - train
         contact:
