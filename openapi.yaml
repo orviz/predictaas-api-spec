@@ -112,6 +112,44 @@ paths:
               $ref: '#/components/schemas/MLApp'
         description: Updated user object
         required: true
+  '/mlapp/{appname}/version':
+    get: # documentation for GET operation for this path
+      tags:
+        - App
+
+      # summary is up to 120 symbold but we recommend to be shortest as possible
+      summary: Get version of ML application
+
+      # you can use GFM in operation description too: https://guides.github.com/features/mastering-markdown
+      description: |
+        Some description of the operation.
+        You can use `markdown` here.
+
+      # operationId should be unique across the whole specification
+      operationId: getMLAppVersion
+
+      # list of parameters for the operation
+      parameters:
+        - name: appname
+          in: path
+          description: The name that needs to be fetched
+          required: true
+          schema:
+            type: string
+
+      responses: # list of responses
+        '200':
+          description: Success
+          content:
+            application/json: # operation response mime type
+              schema: # response schema can be specified for each response
+                $ref: '#/components/schemas/MLApp'
+              example: # response example
+                appname: fooapp
+        '403':
+          description: Forbidden
+        '404':
+          description: Application not found
 
 # An object to hold reusable parts that can be used across the definition
 components:
